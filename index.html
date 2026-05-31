@@ -1,0 +1,1289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Evangelina Morris — Portfolio & Blog</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,300&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
+
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --purple: #7C5CBF;
+  --purple-deep: #5B3FA0;
+  --purple-light: #A88DE0;
+  --purple-pale: #EDE8F8;
+  --purple-mist: #F5F2FD;
+  --green: #CFEAA0;
+  --green-deep: #B0D870;
+  --green-muted: #E8F5C8;
+  --cream: #F9F8F4;
+  --white: #FFFFFF;
+  --text: #2A1F3D;
+  --text-muted: #7A6E8A;
+  --border: rgba(124,92,191,0.15);
+  --radius: 12px;
+  --radius-lg: 20px;
+  --radius-xl: 32px;
+}
+
+html { scroll-behavior: smooth; }
+body { font-family: 'DM Sans', sans-serif; color: var(--text); background: var(--cream); font-size: 16px; line-height: 1.7; }
+a { text-decoration: none; color: inherit; }
+img { max-width: 100%; }
+
+/* ── PAGE SYSTEM ── */
+.page { display: none; min-height: 100vh; }
+.page.active { display: block; }
+
+/* ── NAV ── */
+nav {
+  position: sticky; top: 0; z-index: 200;
+  background: rgba(249,248,244,0.92); backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--border);
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 0 2.5rem; height: 68px;
+}
+.nav-logo { display: flex; align-items: center; gap: 12px; cursor: pointer; }
+.nav-logo-mark {
+  width: 38px; height: 38px;
+  background: linear-gradient(135deg, var(--purple), var(--purple-deep));
+  border-radius: 10px; display: flex; align-items: center; justify-content: center;
+  font-weight: 700; font-size: 14px; color: var(--green); font-family: 'DM Serif Display', serif;
+}
+.nav-logo-text { font-family: 'DM Serif Display', serif; font-size: 20px; color: var(--text); }
+.nav-links { display: flex; align-items: center; gap: 0.25rem; }
+.nav-links button {
+  background: none; border: none; color: var(--text-muted); font-size: 14px;
+  font-family: 'DM Sans', sans-serif; font-weight: 500;
+  padding: 7px 16px; border-radius: 8px; cursor: pointer; transition: all 0.2s;
+}
+.nav-links button:hover { background: var(--purple-mist); color: var(--purple); }
+.nav-links button.active { background: var(--purple-pale); color: var(--purple-deep); font-weight: 600; }
+.nav-blog-btn {
+  background: linear-gradient(135deg, var(--purple), var(--purple-deep)) !important;
+  color: var(--green) !important; font-weight: 600 !important; padding: 8px 20px !important;
+}
+.nav-blog-btn:hover { opacity: 0.9; transform: translateY(-1px); }
+
+/* ══════════════════════════════════════
+   HOME PAGE
+══════════════════════════════════════ */
+
+/* ── HERO ── */
+.hero {
+  min-height: calc(100vh - 68px);
+  display: grid; grid-template-columns: 1fr 1fr;
+  align-items: center;
+  position: relative; overflow: hidden;
+  background: var(--cream);
+}
+.hero-bg-blobs { position: absolute; inset: 0; pointer-events: none; overflow: hidden; }
+.blob {
+  position: absolute; border-radius: 50%;
+  filter: blur(60px); opacity: 0.35;
+}
+.blob-1 { width: 600px; height: 600px; background: var(--purple-light); top: -150px; right: -100px; animation: drift1 12s ease-in-out infinite alternate; }
+.blob-2 { width: 400px; height: 400px; background: var(--green); bottom: -100px; right: 100px; animation: drift2 10s ease-in-out infinite alternate; }
+.blob-3 { width: 300px; height: 300px; background: var(--purple-pale); top: 200px; left: 50%; animation: drift3 14s ease-in-out infinite alternate; }
+@keyframes drift1 { from { transform: translate(0,0) scale(1); } to { transform: translate(-30px, 40px) scale(1.05); } }
+@keyframes drift2 { from { transform: translate(0,0) scale(1); } to { transform: translate(20px, -30px) scale(1.08); } }
+@keyframes drift3 { from { transform: translate(0,0); } to { transform: translate(-20px, 25px); } }
+
+.hero-left { position: relative; z-index: 2; padding: 5rem 3rem 5rem 5rem; }
+.hero-tag {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: var(--purple-pale); color: var(--purple-deep);
+  font-size: 12px; font-weight: 600; letter-spacing: 1px; text-transform: uppercase;
+  padding: 6px 16px; border-radius: 20px; margin-bottom: 2rem;
+  border: 1px solid rgba(124,92,191,0.25);
+}
+.hero-tag span { width: 6px; height: 6px; background: var(--green-deep); border-radius: 50%; display: inline-block; }
+.hero h1 {
+  font-family: 'DM Serif Display', serif; font-size: 4rem;
+  line-height: 1.1; margin-bottom: 1.5rem; color: var(--text); font-weight: 400;
+}
+.hero h1 em { color: var(--purple); font-style: italic; }
+.hero-lead { font-size: 1.1rem; color: var(--text-muted); max-width: 460px; margin-bottom: 2.5rem; font-weight: 300; }
+.hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; }
+.btn-primary {
+  background: linear-gradient(135deg, var(--purple), var(--purple-deep));
+  color: var(--white); font-family: 'DM Sans', sans-serif; font-weight: 600;
+  font-size: 14px; padding: 14px 28px; border-radius: var(--radius); border: none;
+  cursor: pointer; transition: all 0.25s; display: inline-flex; align-items: center; gap: 8px;
+}
+.btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(124,92,191,0.35); }
+.btn-outline {
+  background: transparent; color: var(--purple); font-family: 'DM Sans', sans-serif;
+  font-weight: 600; font-size: 14px; padding: 13px 28px; border-radius: var(--radius);
+  border: 1.5px solid var(--purple-light); cursor: pointer; transition: all 0.2s;
+  display: inline-flex; align-items: center; gap: 8px;
+}
+.btn-outline:hover { background: var(--purple-mist); border-color: var(--purple); }
+
+.hero-right { position: relative; z-index: 2; padding: 5rem 5rem 5rem 2rem; display: flex; justify-content: center; }
+.hero-avatar-wrap {
+  position: relative; width: 360px; height: 420px;
+}
+.hero-avatar-card {
+  width: 100%; height: 100%;
+  background: linear-gradient(160deg, var(--purple) 0%, var(--purple-deep) 50%, #3D2070 100%);
+  border-radius: var(--radius-xl);
+  display: flex; align-items: center; justify-content: center;
+  overflow: hidden; position: relative;
+}
+.avatar-initials {
+  font-family: 'DM Serif Display', serif; font-size: 8rem; color: rgba(255,255,255,0.12);
+  line-height: 1; user-select: none; letter-spacing: -4px;
+}
+.avatar-overlay {
+  position: absolute; bottom: 0; left: 0; right: 0;
+  padding: 2rem 1.5rem;
+  background: linear-gradient(to top, rgba(0,0,0,0.5) 0%, transparent 100%);
+}
+.avatar-label { color: var(--green); font-size: 12px; font-weight: 600; letter-spacing: 1px; text-transform: uppercase; }
+.avatar-name { color: white; font-family: 'DM Serif Display', serif; font-size: 1.5rem; }
+.hero-badge-float {
+  position: absolute; top: -16px; right: -16px;
+  background: var(--green); color: var(--text); font-size: 12px; font-weight: 700;
+  padding: 12px 16px; border-radius: 14px; box-shadow: 0 4px 20px rgba(0,0,0,0.12);
+  text-align: center; min-width: 90px;
+}
+.hero-badge-float strong { display: block; font-size: 1.4rem; font-family: 'DM Serif Display', serif; }
+.hero-scroll-cue {
+  position: absolute; bottom: -2rem; left: 50%; transform: translateX(-50%);
+  display: flex; flex-direction: column; align-items: center; gap: 6px;
+  color: var(--text-muted); font-size: 11px; letter-spacing: 1px; text-transform: uppercase;
+  animation: nudge 2s ease-in-out infinite;
+}
+.hero-scroll-cue i { font-size: 18px; }
+@keyframes nudge { 0%,100%{transform:translateX(-50%) translateY(0)} 50%{transform:translateX(-50%) translateY(6px)} }
+
+/* ── SKILLS STRIP ── */
+.skills-strip {
+  background: var(--white); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);
+  padding: 1.5rem 5rem; display: flex; align-items: center; gap: 3rem; flex-wrap: wrap;
+}
+.skill-pill {
+  display: flex; align-items: center; gap: 8px;
+  font-size: 13px; font-weight: 500; color: var(--text-muted);
+}
+.skill-pill i { font-size: 18px; color: var(--purple); }
+
+/* ── ABOUT ── */
+#about { background: var(--white); }
+.section { padding: 5rem 5rem; max-width: 1200px; margin: 0 auto; }
+.section-label { font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: var(--purple); font-weight: 700; margin-bottom: 0.75rem; }
+.section-title { font-size: 2.5rem; font-family: 'DM Serif Display', serif; color: var(--text); margin-bottom: 1rem; line-height: 1.2; font-weight: 400; }
+.section-title em { color: var(--purple); font-style: italic; }
+
+.about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: start; padding-top: 3rem; }
+.about-text p { font-size: 1rem; color: var(--text-muted); line-height: 1.85; margin-bottom: 1.25rem; font-weight: 300; }
+.about-text p strong { color: var(--text); font-weight: 600; }
+.about-highlights { margin-top: 2rem; display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+.highlight-card {
+  background: var(--purple-mist); border: 1px solid var(--border);
+  border-radius: var(--radius); padding: 1.25rem;
+}
+.highlight-card strong { display: block; font-size: 1.6rem; font-family: 'DM Serif Display', serif; color: var(--purple); }
+.highlight-card span { font-size: 12px; color: var(--text-muted); font-weight: 500; }
+.about-sidebar { display: flex; flex-direction: column; gap: 1.5rem; }
+.about-photo-block {
+  background: linear-gradient(160deg, var(--purple-pale) 0%, var(--green-muted) 100%);
+  border-radius: var(--radius-lg); padding: 2.5rem; text-align: center; position: relative; overflow: hidden;
+}
+.about-photo-initials {
+  font-family: 'DM Serif Display', serif; font-size: 6rem;
+  color: var(--purple); opacity: 0.15; line-height: 1;
+}
+.about-photo-info { position: relative; z-index: 1; }
+.about-photo-name { font-family: 'DM Serif Display', serif; font-size: 1.5rem; color: var(--text); }
+.about-photo-role { font-size: 13px; color: var(--purple); font-weight: 600; }
+.about-skills-list { list-style: none; display: flex; flex-direction: column; gap: 0.6rem; }
+.about-skills-list li { display: flex; align-items: center; gap: 10px; font-size: 14px; color: var(--text-muted); font-weight: 400; }
+.about-skills-list li i { color: var(--purple); font-size: 16px; flex-shrink: 0; }
+.about-interests { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 1rem; }
+.interest-tag { background: var(--purple-pale); color: var(--purple-deep); font-size: 12px; font-weight: 600; padding: 4px 14px; border-radius: 20px; }
+
+/* ── FEATURED POSTS (home preview) ── */
+#home-posts-section { background: var(--cream); }
+.home-posts-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+.post-card-home {
+  background: var(--white); border: 1px solid var(--border);
+  border-radius: var(--radius-lg); overflow: hidden;
+  cursor: pointer; transition: all 0.25s;
+}
+.post-card-home:hover { border-color: var(--purple-light); transform: translateY(-4px); box-shadow: 0 12px 32px rgba(124,92,191,0.12); }
+.post-thumb {
+  height: 160px; position: relative; display: flex; align-items: center; justify-content: center;
+  overflow: hidden;
+}
+.post-thumb-1 { background: linear-gradient(135deg, var(--purple) 0%, var(--purple-deep) 100%); }
+.post-thumb-2 { background: linear-gradient(135deg, #3D2070 0%, var(--purple) 100%); }
+.post-thumb-3 { background: linear-gradient(135deg, var(--purple-deep) 0%, #6B4DB5 100%); }
+.post-thumb i { font-size: 52px; color: rgba(207,234,160,0.2); }
+.post-thumb-tag {
+  position: absolute; top: 12px; left: 12px;
+  background: var(--green); color: var(--text); font-size: 10px; font-weight: 700;
+  letter-spacing: 0.5px; text-transform: uppercase; padding: 3px 10px; border-radius: 6px;
+}
+.post-card-body { padding: 1.25rem; }
+.post-card-date { font-size: 11px; color: var(--text-muted); margin-bottom: 0.4rem; }
+.post-card-title { font-family: 'DM Serif Display', serif; font-size: 1.05rem; color: var(--text); margin-bottom: 0.5rem; line-height: 1.35; font-weight: 400; }
+.post-card-excerpt { font-size: 13px; color: var(--text-muted); line-height: 1.65; font-weight: 300; }
+.post-card-meta { display: flex; align-items: center; justify-content: space-between; margin-top: 1rem; padding-top: 0.75rem; border-top: 1px solid var(--border); }
+.post-read-more { font-size: 12px; color: var(--purple); font-weight: 600; display: flex; align-items: center; gap: 4px; }
+.post-comments-count { font-size: 12px; color: var(--text-muted); display: flex; align-items: center; gap: 4px; }
+
+.home-posts-cta { text-align: center; margin-top: 3rem; }
+
+/* ── FOOTER ── */
+footer {
+  background: var(--text); color: rgba(255,255,255,0.7);
+}
+.footer-main {
+  max-width: 1200px; margin: 0 auto; padding: 4rem 5rem 2rem;
+  display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 4rem;
+}
+.footer-brand p { font-size: 14px; line-height: 1.75; color: rgba(255,255,255,0.5); margin: 1rem 0 1.5rem; max-width: 300px; font-weight: 300; }
+.social-links { display: flex; gap: 0.6rem; }
+.social-link {
+  width: 36px; height: 36px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.12);
+  display: flex; align-items: center; justify-content: center;
+  color: rgba(255,255,255,0.5); transition: all 0.2s; cursor: pointer; font-size: 16px;
+}
+.social-link:hover { border-color: var(--green); color: var(--green); }
+.footer-col h4 { font-size: 11px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: var(--green); margin-bottom: 1.25rem; }
+.footer-col ul { list-style: none; }
+.footer-col ul li { margin-bottom: 0.6rem; }
+.footer-col ul li a { font-size: 14px; color: rgba(255,255,255,0.5); transition: color 0.2s; font-weight: 300; }
+.footer-col ul li a:hover { color: var(--white); }
+.footer-bottom { border-top: 1px solid rgba(255,255,255,0.08); padding: 1.5rem 5rem; max-width: 1200px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; }
+.footer-bottom p { font-size: 12px; color: rgba(255,255,255,0.3); }
+
+/* ══════════════════════════════════════
+   BLOG PAGE
+══════════════════════════════════════ */
+.blog-header {
+  background: linear-gradient(160deg, var(--purple-mist) 0%, var(--green-muted) 100%);
+  padding: 4rem 5rem 3rem; border-bottom: 1px solid var(--border);
+}
+.blog-header h1 { font-family: 'DM Serif Display', serif; font-size: 3.5rem; color: var(--text); font-weight: 400; margin-bottom: 0.75rem; }
+.blog-header h1 em { color: var(--purple); font-style: italic; }
+.blog-header p { font-size: 1rem; color: var(--text-muted); max-width: 500px; font-weight: 300; }
+.blog-header-meta { display: flex; align-items: center; gap: 2rem; margin-top: 1.5rem; }
+.blog-search-wrap { position: relative; flex: 1; max-width: 380px; }
+.blog-search {
+  width: 100%; padding: 10px 16px 10px 40px;
+  border: 1.5px solid var(--border); border-radius: 24px;
+  font-size: 14px; font-family: 'DM Sans', sans-serif;
+  background: white; outline: none; transition: border-color 0.2s;
+}
+.blog-search:focus { border-color: var(--purple); }
+.blog-search-icon { position: absolute; left: 13px; top: 50%; transform: translateY(-50%); color: var(--text-muted); font-size: 16px; }
+.blog-filter-tabs { display: flex; gap: 0.5rem; flex-wrap: wrap; }
+.filter-tab {
+  background: white; border: 1.5px solid var(--border); color: var(--text-muted);
+  font-size: 13px; font-weight: 500; padding: 7px 18px; border-radius: 20px;
+  cursor: pointer; transition: all 0.2s; font-family: 'DM Sans', sans-serif;
+}
+.filter-tab:hover { border-color: var(--purple-light); color: var(--purple); }
+.filter-tab.active { background: var(--purple); border-color: var(--purple); color: white; }
+
+.blog-layout { display: grid; grid-template-columns: 1fr 300px; gap: 3rem; max-width: 1200px; margin: 0 auto; padding: 3rem 5rem; }
+.blog-feed { display: flex; flex-direction: column; gap: 2rem; }
+
+/* Blog Post Cards */
+.blog-post-card {
+  background: var(--white); border: 1px solid var(--border);
+  border-radius: var(--radius-lg); overflow: hidden;
+  cursor: pointer; transition: all 0.25s;
+}
+.blog-post-card:hover { border-color: var(--purple-light); box-shadow: 0 8px 28px rgba(124,92,191,0.1); }
+.blog-post-card.featured { display: grid; grid-template-columns: 1.2fr 1fr; }
+.post-banner {
+  height: 200px; display: flex; align-items: center; justify-content: center; position: relative; overflow: hidden;
+}
+.blog-post-card.featured .post-banner { height: auto; }
+.banner-1 { background: linear-gradient(160deg, var(--purple) 0%, var(--purple-deep) 60%, #3D2070 100%); }
+.banner-2 { background: linear-gradient(160deg, #4A3080 0%, var(--purple) 100%); }
+.banner-3 { background: linear-gradient(160deg, var(--purple-deep) 0%, #6040A0 100%); }
+.banner-4 { background: linear-gradient(160deg, #5040A0 0%, var(--purple-deep) 100%); }
+.banner-5 { background: linear-gradient(160deg, var(--purple) 0%, #4A3080 100%); }
+.post-banner i { font-size: 60px; color: rgba(207,234,160,0.15); }
+.post-banner-tag {
+  position: absolute; top: 14px; left: 14px;
+  background: var(--green); color: var(--text); font-size: 10px; font-weight: 700;
+  padding: 3px 10px; border-radius: 6px; letter-spacing: 0.5px; text-transform: uppercase;
+}
+.post-banner-featured-tag {
+  position: absolute; top: 14px; right: 14px;
+  background: rgba(255,255,255,0.2); color: white; font-size: 10px; font-weight: 700;
+  padding: 3px 10px; border-radius: 6px; backdrop-filter: blur(8px);
+}
+.blog-post-body { padding: 1.75rem; }
+.post-header-row { display: flex; align-items: center; justify-content: space-between; margin-bottom: 0.6rem; }
+.post-date { font-size: 12px; color: var(--text-muted); font-weight: 400; }
+.post-read-time { font-size: 12px; color: var(--text-muted); display: flex; align-items: center; gap: 4px; }
+.blog-post-body h2 { font-family: 'DM Serif Display', serif; font-size: 1.35rem; color: var(--text); margin-bottom: 0.75rem; line-height: 1.3; font-weight: 400; }
+.blog-post-card.featured .blog-post-body h2 { font-size: 1.6rem; }
+.blog-post-body p { font-size: 14px; color: var(--text-muted); line-height: 1.75; font-weight: 300; }
+.post-footer { display: flex; align-items: center; justify-content: space-between; margin-top: 1.25rem; padding-top: 1rem; border-top: 1px solid var(--border); }
+.post-footer-left { display: flex; align-items: center; gap: 0.5rem; }
+.post-tag { background: var(--purple-pale); color: var(--purple-deep); font-size: 11px; font-weight: 600; padding: 2px 10px; border-radius: 12px; }
+.post-footer-right { display: flex; align-items: center; gap: 1rem; }
+.post-stat { font-size: 12px; color: var(--text-muted); display: flex; align-items: center; gap: 4px; }
+.read-post-btn { font-size: 13px; color: var(--purple); font-weight: 600; display: flex; align-items: center; gap: 4px; transition: gap 0.2s; }
+.blog-post-card:hover .read-post-btn { gap: 8px; }
+
+/* SIDEBAR */
+.blog-sidebar { display: flex; flex-direction: column; gap: 1.5rem; }
+.sidebar-card { background: var(--white); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 1.5rem; }
+.sidebar-card h3 { font-family: 'DM Serif Display', serif; font-size: 1.1rem; color: var(--text); margin-bottom: 1rem; font-weight: 400; }
+.sidebar-about { text-align: center; }
+.sidebar-avatar {
+  width: 60px; height: 60px; border-radius: 50%;
+  background: linear-gradient(135deg, var(--purple), var(--purple-deep));
+  display: flex; align-items: center; justify-content: center;
+  font-family: 'DM Serif Display', serif; color: var(--green); font-size: 1.4rem;
+  margin: 0 auto 0.75rem;
+}
+.sidebar-about p { font-size: 13px; color: var(--text-muted); line-height: 1.65; font-weight: 300; margin-top: 0.5rem; }
+.category-list { list-style: none; }
+.category-item { display: flex; align-items: center; justify-content: space-between; padding: 0.5rem 0; border-bottom: 1px solid var(--border); cursor: pointer; transition: color 0.2s; }
+.category-item:last-child { border-bottom: none; }
+.category-item:hover { color: var(--purple); }
+.category-item span { font-size: 14px; color: var(--text); font-weight: 400; }
+.category-item .count { font-size: 11px; background: var(--purple-pale); color: var(--purple-deep); font-weight: 600; padding: 2px 8px; border-radius: 10px; }
+.recent-posts-list { display: flex; flex-direction: column; gap: 1rem; }
+.recent-post-item { display: flex; gap: 0.75rem; cursor: pointer; }
+.recent-post-thumb {
+  width: 48px; height: 48px; border-radius: 8px; flex-shrink: 0;
+  background: linear-gradient(135deg, var(--purple), var(--purple-deep));
+  display: flex; align-items: center; justify-content: center;
+}
+.recent-post-thumb i { font-size: 20px; color: rgba(207,234,160,0.3); }
+.recent-post-info p { font-size: 13px; color: var(--text); font-weight: 500; line-height: 1.4; }
+.recent-post-info span { font-size: 11px; color: var(--text-muted); }
+.tag-cloud { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+.tag-cloud-item {
+  background: var(--purple-mist); color: var(--purple-deep);
+  font-size: 12px; font-weight: 500; padding: 4px 12px; border-radius: 12px; cursor: pointer; transition: all 0.2s;
+}
+.tag-cloud-item:hover { background: var(--purple); color: white; }
+
+/* ══════════════════════════════════════
+   INDIVIDUAL BLOG POST VIEW
+══════════════════════════════════════ */
+.post-view-header {
+  background: linear-gradient(160deg, var(--purple-mist) 0%, white 100%);
+  padding: 3rem 5rem;
+  border-bottom: 1px solid var(--border);
+}
+.post-back-btn {
+  display: inline-flex; align-items: center; gap: 6px;
+  font-size: 13px; color: var(--purple); font-weight: 600; cursor: pointer;
+  background: none; border: none; font-family: 'DM Sans', sans-serif;
+  margin-bottom: 1.5rem; transition: gap 0.2s;
+}
+.post-back-btn:hover { gap: 10px; }
+.post-view-header h1 { font-family: 'DM Serif Display', serif; font-size: 3rem; color: var(--text); font-weight: 400; line-height: 1.2; max-width: 760px; }
+.post-meta-row { display: flex; align-items: center; gap: 1.5rem; margin-top: 1.25rem; flex-wrap: wrap; }
+.post-meta-item { display: flex; align-items: center; gap: 6px; font-size: 13px; color: var(--text-muted); }
+.post-meta-item i { font-size: 15px; color: var(--purple); }
+.post-hero-banner {
+  width: 100%; height: 360px; display: flex; align-items: center; justify-content: center;
+  position: relative; overflow: hidden;
+}
+.post-hero-banner i { font-size: 80px; color: rgba(207,234,160,0.12); }
+.post-body-wrap { max-width: 1200px; margin: 0 auto; padding: 3rem 5rem; display: grid; grid-template-columns: 1fr 280px; gap: 4rem; align-items: start; }
+.post-content { max-width: 100%; }
+.post-content h2 { font-family: 'DM Serif Display', serif; font-size: 1.75rem; color: var(--text); margin: 2rem 0 1rem; font-weight: 400; }
+.post-content p { font-size: 1rem; color: var(--text-muted); line-height: 1.85; margin-bottom: 1.25rem; font-weight: 300; }
+.post-content blockquote {
+  border-left: 3px solid var(--purple); padding: 1rem 1.5rem;
+  margin: 1.5rem 0; background: var(--purple-mist); border-radius: 0 var(--radius) var(--radius) 0;
+}
+.post-content blockquote p { font-style: italic; color: var(--purple-deep); margin: 0; font-size: 1.05rem; }
+
+/* ── COMMENTS ── */
+.comments-section { margin-top: 3rem; }
+.comments-title { font-family: 'DM Serif Display', serif; font-size: 1.5rem; color: var(--text); font-weight: 400; margin-bottom: 1.5rem; display: flex; align-items: center; gap: 10px; }
+.comments-count-badge { background: var(--purple-pale); color: var(--purple-deep); font-size: 13px; font-weight: 600; font-family: 'DM Sans', sans-serif; padding: 2px 12px; border-radius: 12px; }
+.comment-form { background: var(--white); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 1.75rem; margin-bottom: 2rem; }
+.comment-form h3 { font-family: 'DM Serif Display', serif; font-size: 1.1rem; color: var(--text); font-weight: 400; margin-bottom: 1.25rem; }
+.form-row-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1rem; }
+.form-field { display: flex; flex-direction: column; gap: 5px; }
+.form-field label { font-size: 11px; font-weight: 700; color: var(--text); letter-spacing: 0.5px; text-transform: uppercase; }
+.form-field input, .form-field textarea {
+  padding: 10px 14px; border: 1.5px solid var(--border); border-radius: 8px;
+  font-size: 14px; font-family: 'DM Sans', sans-serif; color: var(--text);
+  background: var(--cream); outline: none; transition: border-color 0.2s; resize: vertical;
+}
+.form-field input:focus, .form-field textarea:focus { border-color: var(--purple); background: white; }
+.form-field textarea { min-height: 100px; }
+.submit-comment-btn {
+  background: linear-gradient(135deg, var(--purple), var(--purple-deep));
+  color: white; font-family: 'DM Sans', sans-serif; font-weight: 600; font-size: 14px;
+  padding: 11px 24px; border-radius: var(--radius); border: none; cursor: pointer;
+  transition: all 0.2s; margin-top: 0.75rem; display: inline-flex; align-items: center; gap: 6px;
+}
+.submit-comment-btn:hover { transform: translateY(-1px); box-shadow: 0 6px 18px rgba(124,92,191,0.3); }
+.comments-list { display: flex; flex-direction: column; gap: 1.25rem; }
+.comment-card { background: var(--white); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 1.5rem; }
+.comment-header { display: flex; align-items: flex-start; justify-content: space-between; margin-bottom: 0.75rem; }
+.comment-author { display: flex; align-items: center; gap: 10px; }
+.comment-avatar {
+  width: 38px; height: 38px; border-radius: 50%; flex-shrink: 0;
+  background: linear-gradient(135deg, var(--purple-light), var(--purple));
+  display: flex; align-items: center; justify-content: center;
+  font-size: 14px; font-weight: 700; color: white; font-family: 'DM Serif Display', serif;
+}
+.comment-author-info strong { font-size: 14px; color: var(--text); font-weight: 600; display: block; }
+.comment-author-info span { font-size: 11px; color: var(--text-muted); }
+.comment-like-btn {
+  background: none; border: 1px solid var(--border); border-radius: 20px;
+  padding: 4px 12px; font-size: 12px; color: var(--text-muted); cursor: pointer;
+  display: flex; align-items: center; gap: 4px; transition: all 0.2s; font-family: 'DM Sans', sans-serif;
+}
+.comment-like-btn:hover { border-color: var(--purple); color: var(--purple); }
+.comment-like-btn.liked { background: var(--purple-pale); border-color: var(--purple); color: var(--purple-deep); }
+.comment-text { font-size: 14px; color: var(--text-muted); line-height: 1.7; font-weight: 300; }
+.comment-reply-btn { background: none; border: none; font-size: 12px; color: var(--purple); font-weight: 600; cursor: pointer; font-family: 'DM Sans', sans-serif; margin-top: 0.75rem; }
+.comment-reply { margin-top: 1rem; padding-top: 1rem; border-top: 1px dashed var(--border); }
+.reply-form { display: flex; flex-direction: column; gap: 0.6rem; }
+.reply-input { width: 100%; padding: 8px 12px; border: 1.5px solid var(--border); border-radius: 8px; font-size: 13px; font-family: 'DM Sans', sans-serif; outline: none; resize: none; min-height: 70px; transition: border-color 0.2s; }
+.reply-input:focus { border-color: var(--purple); }
+.reply-submit { background: var(--purple); color: white; border: none; padding: 7px 18px; border-radius: 8px; font-size: 13px; font-weight: 600; cursor: pointer; font-family: 'DM Sans', sans-serif; align-self: flex-start; }
+.nested-comment { margin-top: 1rem; padding-left: 1.25rem; border-left: 2px solid var(--purple-pale); }
+.no-comments { text-align: center; padding: 3rem 2rem; color: var(--text-muted); font-size: 14px; }
+.no-comments i { font-size: 40px; color: var(--purple-light); display: block; margin-bottom: 0.75rem; }
+
+/* ── ANIMATIONS ── */
+@keyframes fadeUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+.fade-up { animation: fadeUp 0.6s ease both; }
+.delay-1 { animation-delay: 0.1s; }
+.delay-2 { animation-delay: 0.2s; }
+.delay-3 { animation-delay: 0.3s; }
+
+/* ── RESPONSIVE ── */
+@media (max-width: 900px) {
+  .hero { grid-template-columns: 1fr; }
+  .hero-right { display: none; }
+  .hero-left { padding: 3rem 2rem; }
+  .hero h1 { font-size: 2.8rem; }
+  .about-grid { grid-template-columns: 1fr; gap: 2rem; }
+  .blog-layout { grid-template-columns: 1fr; }
+  .blog-sidebar { display: none; }
+  .section { padding: 3rem 2rem; }
+  .blog-header { padding: 3rem 2rem; }
+  .post-body-wrap { grid-template-columns: 1fr; padding: 2rem; }
+  .post-view-header { padding: 2rem; }
+  .post-view-header h1 { font-size: 2rem; }
+  nav { padding: 0 1.25rem; }
+  .home-posts-grid { grid-template-columns: 1fr; }
+  .blog-post-card.featured { grid-template-columns: 1fr; }
+  .footer-main { grid-template-columns: 1fr; padding: 3rem 2rem; }
+  .footer-bottom { padding: 1.25rem 2rem; flex-direction: column; gap: 0.5rem; text-align: center; }
+  .skills-strip { padding: 1.25rem 2rem; }
+}
+</style>
+</head>
+<body>
+
+<!-- ═══════════════════ NAV ═══════════════════ -->
+<nav>
+  <div class="nav-logo" onclick="showPage('home')">
+    <div class="nav-logo-mark">E</div>
+    <div class="nav-logo-text">Evangelina Morris</div>
+  </div>
+  <div class="nav-links">
+    <button id="nav-home" class="active" onclick="showPage('home')">Home</button>
+    <button id="nav-about" onclick="showPage('home'); setTimeout(()=>document.getElementById('about').scrollIntoView({behavior:'smooth'}),100)">About</button>
+    <button id="nav-blog" class="nav-blog-btn" onclick="showPage('blog')">✍ Blog</button>
+  </div>
+</nav>
+
+<!-- ═══════════════════ HOME PAGE ═══════════════════ -->
+<div id="page-home" class="page active">
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-bg-blobs">
+      <div class="blob blob-1"></div>
+      <div class="blob blob-2"></div>
+      <div class="blob blob-3"></div>
+    </div>
+    <div class="hero-left">
+      <div class="hero-tag fade-up"><span></span> Emerging HR Professional</div>
+      <h1 class="fade-up delay-1">Learning HR<br>Out Loud, <br><em>Together.</em></h1>
+      <p class="hero-lead fade-up delay-2">A blog for emerging HR professionals, by one. I'm figuring it out as I go — and writing about all of it honestly.</p>
+      <div class="hero-actions fade-up delay-3">
+        <button class="btn-primary" onclick="showPage('blog')"><i class="ti ti-pencil"></i> Read the Blog</button>
+        <button class="btn-outline" onclick="document.getElementById('about').scrollIntoView({behavior:'smooth'})"><i class="ti ti-user"></i> About Me</button>
+      </div>
+    </div>
+    <div class="hero-right">
+      <div class="hero-avatar-wrap">
+        <div class="hero-avatar-card">
+          <div class="avatar-initials">EV</div>
+          <div class="avatar-overlay">
+            <div class="avatar-label">Emerging HR</div>
+            <div class="avatar-name">Evangelina Morris</div>
+          </div>
+        </div>
+        <div class="hero-scroll-cue"><i class="ti ti-arrow-down"></i></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SKILLS STRIP -->
+  <div class="skills-strip">
+    <div class="skill-pill"><i class="ti ti-users"></i> HR Fundamentals</div>
+    <div class="skill-pill"><i class="ti ti-writing"></i> Honest Reflections</div>
+    <div class="skill-pill"><i class="ti ti-heart"></i> Workplace Wellbeing</div>
+    <div class="skill-pill"><i class="ti ti-school"></i> Studying & Learning</div>
+    <div class="skill-pill"><i class="ti ti-compass"></i> Early Career</div>
+    <div class="skill-pill"><i class="ti ti-message-circle"></i> Community</div>
+  </div>
+
+  <!-- ABOUT -->
+  <div id="about">
+    <div class="section">
+      <div class="section-label">About Me</div>
+      <h2 class="section-title">Hi, I'm Evangelina Morris —<br><em>emerging HR professional</em> & curious learner.</h2>
+      <div class="about-grid">
+        <div class="about-text">
+          <p>I'm at the beginning of my HR journey, and this blog is my way of <strong>logging my learning</strong>. I'm not an expert, I'm someone who's genuinely curious about people, workplaces, and how organisations can do better by the humans inside them.</p>
+          <p>I started this space because I couldn't find many voices talking about what it's actually like to <strong>break into HR</strong> — the worry, the study, the questions you feel embarrassed to ask. So I'm writing that blog myself, for anyone else who's in the same boat.</p>
+          <p>When I'm not studying or combing through LinkedIn at 11pm, you'll find me walking with my friends, cross stitching, or deep in a novel I should have put down hours ago.</p>
+          <div class="about-highlights">
+            <div class="highlight-card"><strong>Emerging</strong><span>HR Professional</span></div>
+            <div class="highlight-card"><strong>Sydney</strong><span>Based in Australia</span></div>
+          </div>
+        </div>
+        <div class="about-sidebar">
+          <div class="about-photo-block">
+            <div style="display:flex;justify-content:center;align-items:center;padding-bottom:1rem;">
+              <img src="data:image/png;base64,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" alt="Evangelina Morris" style="width:140px;height:140px;object-fit:contain;mix-blend-mode:multiply;" />
+            </div>
+            <div class="about-photo-info">
+              <div class="about-photo-name">Evangelina Morris</div>
+              <div class="about-photo-role">Emerging HR Professional</div>
+            </div>
+          </div>
+          <div style="background:white; border:1px solid var(--border); border-radius:var(--radius-lg); padding:1.5rem;">
+            <p class="section-label" style="margin-bottom:1rem;">What I Write About</p>
+            <ul class="about-skills-list">
+              <li><i class="ti ti-door-enter"></i> Breaking into HR</li>
+              <li><i class="ti ti-school"></i> Studying & certifications</li>
+              <li><i class="ti ti-heart-handshake"></i> People & workplace culture</li>
+              <li><i class="ti ti-mood-happy"></i> Wellbeing at work</li>
+              <li><i class="ti ti-question-mark"></i> Questions I'm figuring out</li>
+              <li><i class="ti ti-compass"></i> Early career navigation</li>
+            </ul>
+            <div class="about-interests">
+              <span class="interest-tag">Walking</span>
+              <span class="interest-tag">Cross Stitching</span>
+              <span class="interest-tag">Books</span>
+              <span class="interest-tag">Coffee</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FEATURED POSTS PREVIEW -->
+  <div id="home-posts-section" style="padding: 0 0 5rem;">
+    <div class="section" style="padding-bottom:0;">
+      <div class="section-label">From the Blog</div>
+      <h2 class="section-title">Recent <em>Writing</em></h2>
+    </div>
+    <div class="section" style="padding-top:2rem;">
+      <div class="home-posts-grid">
+        <div class="post-card-home" onclick="openPost(6)">
+          <div class="post-thumb post-thumb-1"><div class="post-thumb-tag">Early Career</div><i class="ti ti-robot"></i></div>
+          <div class="post-card-body">
+            <div class="post-card-date">31 May 2026</div>
+            <h3 class="post-card-title">AI in Recruiting</h3>
+            <p class="post-card-excerpt">AI is reshaping how we hire in Australia. Efficient — yes. But are candidates still being seen as people?</p>
+            <div class="post-card-meta">
+              <span class="post-read-more">Read more <i class="ti ti-arrow-right"></i></span>
+            </div>
+          </div>
+        </div>
+        <div class="post-card-home" onclick="openPost(1)">
+          <div class="post-thumb post-thumb-2"><div class="post-thumb-tag">Culture</div><i class="ti ti-users"></i></div>
+          <div class="post-card-body">
+            <div class="post-card-date">12 May 2026</div>
+            <h3 class="post-card-title">What Is Psychological Safety, and Why Does Everyone Keep Talking About It?</h3>
+            <p class="post-card-excerpt">I kept hearing this term in lectures and podcasts and had no idea what it really meant in practice. So I went and found out.</p>
+            <div class="post-card-meta">
+              <span class="post-read-more">Read more <i class="ti ti-arrow-right"></i></span>
+            </div>
+          </div>
+        </div>
+        <div class="post-card-home" onclick="openPost(2)">
+          <div class="post-thumb post-thumb-2"><div class="post-thumb-tag">Early Career</div><i class="ti ti-compass"></i></div>
+          <div class="post-card-body">
+            <div class="post-card-date">3 May 2026</div>
+            <h3 class="post-card-title">I Asked a "Stupid" HR Question at Work. Here's What Happened.</h3>
+            <p class="post-card-excerpt">Everyone says there are no stupid questions. In practice, asking one as the newest person in the room feels terrifying. I did it anyway.</p>
+            <div class="post-card-meta">
+              <span class="post-read-more">Read more <i class="ti ti-arrow-right"></i></span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="home-posts-cta">
+        <button class="btn-primary" onclick="showPage('blog')"><i class="ti ti-books"></i> View All Posts</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-main">
+      <div class="footer-brand">
+        <div style="display:flex;align-items:center;gap:10px;margin-bottom:0.5rem;">
+          <div class="nav-logo-mark">E</div>
+          <div class="nav-logo-text" style="color:white;">Evangelina Morris</div>
+        </div>
+        <p>A blog for emerging HR professionals, by one. Learning out loud and sharing the journey — the questions, the study, and everything in between.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Topics</h4>
+        <ul>
+          <li><a>Culture & Belonging</a></li>
+          <li><a>Leadership</a></li>
+          <li><a>Wellbeing</a></li>
+          <li><a>Career</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 Evangelina Morris. All rights reserved.</p>
+      <p>Made with ♥ in Sydney, Australia</p>
+    </div>
+  </footer>
+</div>
+
+<!-- ═══════════════════ BLOG PAGE ═══════════════════ -->
+<div id="page-blog" class="page">
+
+  <div class="blog-header">
+    <div style="max-width:1200px;margin:0 auto;">
+      <h1>The <em>Blog</em></h1>
+      <p>Learning HR out loud — honest reflections from someone just starting out.</p>
+      <div class="blog-header-meta">
+        <div class="blog-search-wrap">
+          <i class="ti ti-search blog-search-icon"></i>
+          <input type="text" class="blog-search" placeholder="Search posts..." oninput="filterBlogPosts(this.value)">
+        </div>
+        <div class="blog-filter-tabs">
+          <button class="filter-tab active" onclick="filterByCategory('all',this)">All</button>
+          <button class="filter-tab" onclick="filterByCategory('culture',this)">Culture</button>
+          <button class="filter-tab" onclick="filterByCategory('career',this)">Early Career</button>
+          <button class="filter-tab" onclick="filterByCategory('studying',this)">Studying</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="blog-layout">
+    <div class="blog-feed" id="blog-feed">
+
+      <!-- Post 6 - NEW -->
+      <div class="blog-post-card featured" data-category="career" onclick="openPost(6)">
+        <div class="post-banner banner-2">
+          <i class="ti ti-robot"></i>
+          <div class="post-banner-tag">Early Career</div>
+          <div class="post-banner-featured-tag">✦ Latest</div>
+        </div>
+        <div class="blog-post-body">
+          <div class="post-header-row">
+            <span class="post-date">31 May 2026</span>
+            <span class="post-read-time"><i class="ti ti-clock"></i> 5 min read</span>
+          </div>
+          <h2>AI in Recruiting</h2>
+          <p>AI is becoming a regular part of recruitment in Australia. It saves time and reduces admin — but if it's not used carefully, it can also make candidates feel like more than their resume.</p>
+          <div class="post-footer">
+            <div class="post-footer-left">
+              <span class="post-tag">Early Career</span>
+              <span class="post-tag">Tech & HR</span>
+            </div>
+            <div class="post-footer-right">
+              <span class="read-post-btn">Read <i class="ti ti-arrow-right"></i></span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Post 1 -->
+      <div class="blog-post-card featured" data-category="culture" onclick="openPost(1)">
+        <div class="post-banner banner-1">
+          <i class="ti ti-users"></i>
+          <div class="post-banner-tag">Culture</div>
+        </div>
+        <div class="blog-post-body">
+          <div class="post-header-row">
+            <span class="post-date">12 May 2026</span>
+            <span class="post-read-time"><i class="ti ti-clock"></i> 5 min read</span>
+          </div>
+          <h2>What Is Psychological Safety, and Why Does Everyone Keep Talking About It?</h2>
+          <p>I kept hearing this term in lectures, podcasts, and HR LinkedIn posts and honestly wasn't sure what it really meant day-to-day. So I went and found out — and it's more practical and more important than I expected.</p>
+          <div class="post-footer">
+            <div class="post-footer-left">
+              <span class="post-tag">Culture</span>
+              <span class="post-tag">Learning</span>
+            </div>
+            <div class="post-footer-right">
+              <span class="read-post-btn">Read <i class="ti ti-arrow-right"></i></span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Post 2 -->
+      <div class="blog-post-card" data-category="career" onclick="openPost(2)">
+        <div class="post-banner banner-2" style="height:180px;">
+          <i class="ti ti-message-circle"></i>
+          <div class="post-banner-tag">Early Career</div>
+        </div>
+        <div class="blog-post-body">
+          <div class="post-header-row">
+            <span class="post-date">3 May 2026</span>
+            <span class="post-read-time"><i class="ti ti-clock"></i> 4 min read</span>
+          </div>
+          <h2>I Asked a "Stupid" HR Question at Work. Here's What Happened.</h2>
+          <p>Everyone says there are no stupid questions. In practice, asking one as the newest person in the room feels genuinely terrifying. I did it anyway — and I'm glad I did.</p>
+          <div class="post-footer">
+            <div class="post-footer-left">
+              <span class="post-tag">Early Career</span>
+              <span class="post-tag">Honesty</span>
+            </div>
+            <div class="post-footer-right">
+              <span class="read-post-btn">Read <i class="ti ti-arrow-right"></i></span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Post 3 -->
+      <div class="blog-post-card" data-category="studying" onclick="openPost(3)">
+        <div class="post-banner banner-3" style="height:180px;">
+          <i class="ti ti-school"></i>
+          <div class="post-banner-tag">Studying</div>
+        </div>
+        <div class="blog-post-body">
+          <div class="post-header-row">
+            <span class="post-date">24 Apr 2026</span>
+            <span class="post-read-time"><i class="ti ti-clock"></i> 5 min read</span>
+          </div>
+          <h2>What Nobody Tells You About Studying HR While Working Full Time</h2>
+          <p>It's doable. It's also genuinely a lot. Some honest, unfiltered notes from someone who is currently living it and hasn't totally figured it out yet.</p>
+          <div class="post-footer">
+            <div class="post-footer-left">
+              <span class="post-tag">Studying</span>
+              <span class="post-tag">Real Talk</span>
+            </div>
+            <div class="post-footer-right">
+              <span class="read-post-btn">Read <i class="ti ti-arrow-right"></i></span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Post 4 -->
+      <div class="blog-post-card" data-category="career" onclick="openPost(4)">
+        <div class="post-banner banner-4" style="height:180px;">
+          <i class="ti ti-door-enter"></i>
+          <div class="post-banner-tag">Breaking In</div>
+        </div>
+        <div class="blog-post-body">
+          <div class="post-header-row">
+            <span class="post-date">15 Apr 2026</span>
+            <span class="post-read-time"><i class="ti ti-clock"></i> 4 min read</span>
+          </div>
+          <h2>How Do You Actually Break Into HR With No HR Experience?</h2>
+          <p>This is the question I've been wrestling with since I decided to make the switch. I've been piecing together an answer — here's what I've found so far.</p>
+          <div class="post-footer">
+            <div class="post-footer-left">
+              <span class="post-tag">Breaking In</span>
+              <span class="post-tag">Career Change</span>
+            </div>
+            <div class="post-footer-right">
+              <span class="read-post-btn">Read <i class="ti ti-arrow-right"></i></span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Post 5 -->
+      <div class="blog-post-card" data-category="culture" onclick="openPost(5)">
+        <div class="post-banner banner-5" style="height:180px;">
+          <i class="ti ti-building-community"></i>
+          <div class="post-banner-tag">Culture</div>
+        </div>
+        <div class="blog-post-body">
+          <div class="post-header-row">
+            <span class="post-date">5 Apr 2026</span>
+            <span class="post-read-time"><i class="ti ti-clock"></i> 4 min read</span>
+          </div>
+          <h2>The First Time I Witnessed a Toxic Workplace (and Didn't Know What to Call It)</h2>
+          <p>Looking back, all the signs were there. At the time I just thought it was normal. This is the post I wish someone had handed me then.</p>
+          <div class="post-footer">
+            <div class="post-footer-left">
+              <span class="post-tag">Culture</span>
+              <span class="post-tag">Real Talk</span>
+            </div>
+            <div class="post-footer-right">
+              <span class="read-post-btn">Read <i class="ti ti-arrow-right"></i></span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- SIDEBAR -->
+    <aside class="blog-sidebar">
+      <div class="sidebar-card sidebar-about">
+        <div class="sidebar-avatar">E</div>
+        <div class="about-photo-name" style="font-size:1.1rem;">Evangelina Morris</div>
+        <p>Emerging HR professional based in Sydney. Learning out loud and writing about the journey for anyone else just starting out.</p>
+      </div>
+      <div class="sidebar-card">
+        <h3>Categories</h3>
+        <ul class="category-list">
+          <li class="category-item" onclick="filterByCategory('culture', null)"><span>Culture</span><span class="count">2</span></li>
+          <li class="category-item" onclick="filterByCategory('career', null)"><span>Early Career & Breaking In</span><span class="count">3</span></li>
+          <li class="category-item" onclick="filterByCategory('studying', null)"><span>Studying</span><span class="count">1</span></li>
+        </ul>
+      </div>
+      <div class="sidebar-card">
+        <h3>Recent Posts</h3>
+        <div class="recent-posts-list">
+          <div class="recent-post-item" onclick="openPost(6)">
+            <div class="recent-post-thumb"><i class="ti ti-robot"></i></div>
+            <div class="recent-post-info"><p>AI in Recruiting</p><span>31 May 2026</span></div>
+          </div>
+          <div class="recent-post-item" onclick="openPost(1)">
+            <div class="recent-post-thumb"><i class="ti ti-users"></i></div>
+            <div class="recent-post-info"><p>What Is Psychological Safety?</p><span>12 May 2026</span></div>
+          </div>
+          <div class="recent-post-item" onclick="openPost(2)">
+            <div class="recent-post-thumb"><i class="ti ti-message-circle"></i></div>
+            <div class="recent-post-info"><p>I Asked a "Stupid" HR Question...</p><span>3 May 2026</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="sidebar-card">
+        <h3>Tags</h3>
+        <div class="tag-cloud">
+          <span class="tag-cloud-item">Culture</span>
+          <span class="tag-cloud-item">Early Career</span>
+          <span class="tag-cloud-item">Studying</span>
+          <span class="tag-cloud-item">Breaking In</span>
+          <span class="tag-cloud-item">Real Talk</span>
+          <span class="tag-cloud-item">Learning</span>
+          <span class="tag-cloud-item">HR</span>
+        </div>
+      </div>
+    </aside>
+  </div>
+
+  <!-- FOOTER (blog page) -->
+  <footer>
+    <div class="footer-main">
+      <div class="footer-brand">
+        <div style="display:flex;align-items:center;gap:10px;margin-bottom:0.5rem;">
+          <div class="nav-logo-mark">E</div>
+          <div class="nav-logo-text" style="color:white;">Evangelina Morris</div>
+        </div>
+        <p>Writing about the human side of work — culture, leadership, wellbeing, and what it means to build workplaces where people thrive.</p>
+        <div class="social-links">
+          <a class="social-link" href="https://www.linkedin.com/in/evangelina-morris-487508288" target="_blank" rel="noopener"><i class="ti ti-brand-linkedin"></i></a>
+          <div class="social-link"><i class="ti ti-mail"></i></div>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Navigate</h4>
+        <ul>
+          <li><a onclick="showPage('home')">Home</a></li>
+          <li><a onclick="showPage('blog')">Blog</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Topics</h4>
+        <ul>
+          <li><a>Culture</a></li>
+          <li><a>Leadership</a></li>
+          <li><a>Wellbeing</a></li>
+          <li><a>Career</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 Evangelina Morris. All rights reserved.</p>
+      <p>Made with ♥ in Sydney, Australia</p>
+    </div>
+  </footer>
+</div>
+
+<!-- ═══════════════════ POST VIEW PAGE ═══════════════════ -->
+<div id="page-post" class="page">
+
+  <div class="post-view-header">
+    <div style="max-width:1200px;margin:0 auto;">
+      <button class="post-back-btn" onclick="showPage('blog')"><i class="ti ti-arrow-left"></i> Back to Blog</button>
+      <h1 id="post-title">Post Title</h1>
+      <div class="post-meta-row">
+        <div class="post-meta-item"><i class="ti ti-calendar"></i> <span id="post-date-display"></span></div>
+        <div class="post-meta-item"><i class="ti ti-clock"></i> <span id="post-read-time"></span></div>
+        <div class="post-meta-item"><i class="ti ti-tag"></i> <span id="post-category"></span></div>
+        <div class="post-meta-item"><i class="ti ti-message-circle"></i> <span id="post-comment-count"></span> comments</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="post-hero-banner" id="post-banner">
+    <i class="ti ti-users" id="post-banner-icon"></i>
+  </div>
+
+  <div class="post-body-wrap">
+    <div>
+      <div class="post-content" id="post-content"></div>
+
+      <!-- COMMENTS SECTION -->
+      <div class="comments-section">
+        <div class="comments-title">
+          Comments <span class="comments-count-badge" id="comment-count-badge">0</span>
+        </div>
+
+        <!-- Comment Form -->
+        <div class="comment-form">
+          <h3>Leave a Comment</h3>
+          <div class="form-row-2">
+            <div class="form-field"><label>Name *</label><input type="text" id="comment-name" placeholder="Your name"></div>
+            <div class="form-field"><label>Email</label><input type="email" id="comment-email" placeholder="your@email.com (not shown)"></div>
+          </div>
+          <div class="form-field"><label>Comment *</label><textarea id="comment-text" placeholder="Share your thoughts..."></textarea></div>
+          <button class="submit-comment-btn" onclick="submitComment()"><i class="ti ti-send"></i> Post Comment</button>
+        </div>
+
+        <!-- Comments List -->
+        <div class="comments-list" id="comments-list"></div>
+      </div>
+    </div>
+
+    <!-- POST SIDEBAR -->
+    <aside class="blog-sidebar">
+      <div class="sidebar-card sidebar-about">
+        <div class="sidebar-avatar">E</div>
+        <div class="about-photo-name" style="font-size:1.1rem;">Evangelina Morris</div>
+        <p>Emerging HR professional based in Sydney. Learning as I go.</p>
+      </div>
+      <div class="sidebar-card">
+        <h3>More Posts</h3>
+        <div class="recent-posts-list">
+          <div class="recent-post-item" onclick="openPost(1)">
+            <div class="recent-post-thumb"><i class="ti ti-users"></i></div>
+            <div class="recent-post-info"><p>Why Psychological Safety Is...</p><span>12 May 2026</span></div>
+          </div>
+          <div class="recent-post-item" onclick="openPost(2)">
+            <div class="recent-post-thumb"><i class="ti ti-compass"></i></div>
+            <div class="recent-post-info"><p>The Quiet Skill Every Manager...</p><span>3 May 2026</span></div>
+          </div>
+          <div class="recent-post-item" onclick="openPost(3)">
+            <div class="recent-post-thumb"><i class="ti ti-heart"></i></div>
+            <div class="recent-post-info"><p>Burnout Isn't a Personal Failure...</p><span>24 Apr 2026</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="sidebar-card">
+        <h3>Tags</h3>
+        <div class="tag-cloud">
+          <span class="tag-cloud-item">Culture</span>
+          <span class="tag-cloud-item">Leadership</span>
+          <span class="tag-cloud-item">Wellbeing</span>
+          <span class="tag-cloud-item">Career</span>
+          <span class="tag-cloud-item">HR</span>
+        </div>
+      </div>
+    </aside>
+  </div>
+</div>
+
+<script>
+// ── POST DATA ──
+const posts = {
+  1: {
+    title: "What Is Psychological Safety, and Why Does Everyone Keep Talking About It?",
+    date: "12 May 2026", readTime: "5 min read", category: "Culture",
+    icon: "ti-users", bannerClass: "banner-1",
+    content: `
+      <p>I kept hearing this term — <em>psychological safety</em> — in lectures, podcasts, and HR LinkedIn posts and honestly wasn't entirely sure what it meant in practice. So I went and read about it properly, and it turns out it's both simpler and more interesting than the jargon made it sound.</p>
+      <h2>What It Actually Means</h2>
+      <p>Amy Edmondson, a Harvard researcher, defines psychological safety as the belief that you won't be punished or humiliated for speaking up — whether that's asking a question, flagging a concern, admitting a mistake, or sharing an idea. That's it. It's not about being comfortable all the time, or never getting challenged. It's just about feeling like you won't be made to feel stupid or small for being honest.</p>
+      <blockquote><p>"The fear of looking incompetent, ignorant, or disruptive is one of the greatest silencers in organisational life."</p></blockquote>
+      <h2>Why I Find This Relevant as Someone Just Starting Out</h2>
+      <p>Honestly? Because I spend a lot of time worrying about saying the wrong thing. Asking something people already know. Looking like I don't belong in the room. Reading about psychological safety made me realise that feeling isn't just my anxiety — it's a real, studied phenomenon that affects how well teams function.</p>
+      <p>When people don't feel safe, they go quiet. They don't raise the thing they noticed. They don't ask for help when they need it. Google — after studying hundreds of teams — found that psychological safety was the single biggest predictor of team performance. More than talent. More than structure. That stuck with me.</p>
+      <h2>What I'm Still Figuring Out</h2>
+      <p>I'm genuinely curious about what this looks like in practice at a team level. How do you actually build it? Is it mostly about how managers respond when things go wrong? I don't have confident answers yet — I'm still early in learning this stuff. But I'm paying more attention to it, and I'll keep writing about what I find.</p>
+    `,
+    comments: []
+  },
+  2: {
+    title: "I Asked a \"Stupid\" HR Question at Work. Here's What Happened.",
+    date: "3 May 2026", readTime: "4 min read", category: "Early Career",
+    icon: "ti-message-circle", bannerClass: "banner-2",
+    content: `
+      <p>There's a moment I keep experiencing in HR contexts — in class, in meetings, reading articles — where everyone else seems to follow along completely and I'm sitting there thinking: wait, what does that actually mean?</p>
+      <p>For a while I just nodded and googled things later. That worked okay until it didn't.</p>
+      <h2>The Question</h2>
+      <p>I was in a team meeting where someone mentioned an enterprise agreement and how it applied to a specific leave entitlement. I had studied enterprise agreements. I thought I understood them reasonably well. And yet I couldn't follow how they were applying it in this case.</p>
+      <p>I sat with the confusion for about ten minutes. Then I just asked. Something like: "Sorry, I want to make sure I'm following — can you walk me through how that applies here?"</p>
+      <h2>What Actually Happened</h2>
+      <p>Nobody laughed. Nobody looked at me like I shouldn't be there. The person explaining paused, thought about it, and gave a clearer explanation — and then someone else in the room said they'd been confused about the same thing.</p>
+      <blockquote><p>"The question that feels most exposing is often the one at least two other people in the room have but aren't asking."</p></blockquote>
+      <h2>What I Took From It</h2>
+      <p>I'm not saying it's always safe to ask questions — I know that depends a lot on the environment you're in. But I think I'd built up asking into something much scarier than it needed to be. The risk I imagined was much larger than the actual risk. I'm going to keep asking. It feels like the only honest way to actually learn.</p>
+    `,
+    comments: []
+  },
+  3: {
+    title: "What Nobody Tells You About Studying HR While Working Full Time",
+    date: "24 Apr 2026", readTime: "5 min read", category: "Studying",
+    icon: "ti-school", bannerClass: "banner-3",
+    content: `
+      <p>I want to write this as honestly as I can, because when I was looking for information about doing this, most of what I found was either very motivational ("you can do it!") or very vague. So here's the less curated version.</p>
+      <h2>It Takes Up More Mental Space Than Time</h2>
+      <p>The hours are manageable — I study most evenings and do longer sessions on weekends. What I didn't expect was how much of my background brain it occupies. I think about content during work. I worry about assessments while trying to wind down. I do that thing where you lie awake at 11pm mentally drafting an essay.</p>
+      <p>It's not unmanageable. But it's present in a way I didn't fully anticipate.</p>
+      <h2>The Material Hits Differently When You're Observing a Workplace</h2>
+      <p>This part has been genuinely good. I'll read something in a textbook — about performance management, or recruitment bias — and then notice it playing out (or not playing out) in real life. That connection between theory and practice makes the study feel worthwhile in a way that pure studying never quite did for me.</p>
+      <blockquote><p>"Reading about HR theory is one thing. Watching how it plays out — or doesn't — in a real workplace is a completely different education."</p></blockquote>
+      <h2>Some Weeks Are Just Survival Mode</h2>
+      <p>There are weeks where I do the minimum and feel guilty about it. A bad week at work, or just running on empty, and the study gets squeezed. I'm learning to be okay with that without letting it spiral into "maybe I should just stop."</p>
+      <h2>Would I Recommend It?</h2>
+      <p>Yes — with the caveat that it's worth being honest with yourself about your bandwidth before you start. And don't wait until everything is perfect to begin. I kept putting it off because the timing wasn't ideal. There was never going to be an ideal time.</p>
+    `,
+    comments: []
+  },
+  4: {
+    title: "How Do You Actually Break Into HR With No HR Experience?",
+    date: "15 Apr 2026", readTime: "4 min read", category: "Early Career",
+    icon: "ti-door-enter", bannerClass: "banner-4",
+    content: `
+      <p>This is the question I've been sitting with since I decided I wanted to move into HR. And it's a frustrating one, because the standard advice — "get experience" — is a bit circular when you're trying to break in from the outside.</p>
+      <h2>What I've Been Trying</h2>
+      <p>I'm not going to write this like I've cracked it, because I haven't. But here's what I'm actively doing, in case any of it is useful.</p>
+      <p><strong>Studying formally.</strong> A qualification isn't the only path, but for me it's been useful — both for the knowledge and for having something concrete to point to when I have no job title to back me up yet.</p>
+      <p><strong>Volunteering where I can.</strong> I've been helping with recruitment coordination for a small not-for-profit. It's not a paid HR role, but it's real experience with real stakes, and it gives me things to talk about.</p>
+      <p><strong>Talking to people already in HR.</strong> I've reached out to a few people on LinkedIn — just honest messages, not asking for a job — and most have been generous with their time. The HR community seems, in my experience so far, pretty willing to help people who are genuinely trying.</p>
+      <blockquote><p>"Transferable skills are real — but you have to do the work of connecting the dots yourself. Nobody will do that for you."</p></blockquote>
+      <h2>What I'm Still Unsure About</h2>
+      <p>I genuinely don't know how much my previous experience will count, or whether gaps will need constant explaining. I'm hoping this blog becomes part of the answer — evidence that I'm actively engaged with the field, even before I'm officially in it. If you're navigating the same thing, I'd love to hear what's worked for you.</p>
+    `,
+    comments: []
+  },
+  6: {
+    title: "AI in Recruiting",
+    date: "31 May 2026", readTime: "5 min read", category: "Early Career",
+    icon: "ti-robot", bannerClass: "banner-2",
+    content: `
+      <p>AI is becoming a regular part of recruitment in Australia, from screening resumes and organising interviews to helping recruiters manage large volumes of applicants. In corporate HR, that can be a real advantage because it saves time and reduces repetitive admin. But while the process becomes faster, it can also become less personal if it is not used carefully.</p>
+      <p>For candidates, that matters. Job applications already require effort, confidence, and vulnerability. When the first point of contact is an automated system, it can be easy to feel like your experience, personality, and potential have been reduced to keywords and data points. That is where the risk of dehumanisation starts.</p>
+      <h2>Why It Can Feel Dehumanising</h2>
+      <p>AI can make candidates feel unvalued when it is used as a gatekeeper rather than a support tool. If someone spends time tailoring an application and then receives no explanation for a rejection, the process can feel impersonal and discouraging. In the Australian job market, where candidates are often encouraged to be authentic and proactive, that disconnect can be especially frustrating.</p>
+      <p>There is also the risk that AI overlooks people who do not fit a narrow pattern. Career changers, early-career applicants, and people with less traditional experience may be filtered out before a recruiter has the chance to see their strengths. As an emerging professional, I have also felt this personally. Being asked to complete number and shape games as part of recruitment can make the process feel more like a children's activity than a serious assessment of capability. Even if the intention is to test attention or problem-solving, it can leave candidates feeling underestimated rather than understood.</p>
+      <p>That is a concern in HR because recruitment should not only be efficient; it should also be fair, thoughtful, and respectful.</p>
+      <h2>Used Well, AI Helps</h2>
+      <p>Used well, AI helps recruiters do their jobs more effectively without taking the human element out of hiring. I completed LinkedIn Learning's <em>Harnessing AI in the Recruiting Lifecycle</em>, and it reinforced for me that AI can be a practical support tool when it is guided by human judgment. One of the most useful ideas was using AI to analyse why past hires were successful, so recruiters can better understand the skills, behaviours, and experiences that tend to lead to strong performance.</p>
+      <p>It can also improve the recruitment process in very practical ways. AI can help optimise interview questions, manage interview scheduling, coordinate communication, and identify likely career paths and growth opportunities. In a busy Australian corporate environment, that kind of support can make the process smoother for both recruiters and candidates.</p>
+      <p>Most importantly, AI can assist with more objective candidate comparison, but only when there is strong human oversight. It should help HR professionals make better‑informed decisions, not make the final decision for them. For HR managers in large Australian corporations, that balance matters because it protects both candidate experience and employer reputation while still maintaining fairness, context, and professionalism.</p>
+      <h2>Keeping the Human Centre</h2>
+      <p>The best use of AI in recruiting is balanced. It should create more space for meaningful human judgment, not replace it. That means being transparent about where AI is used, checking systems for bias, and making sure a person is still accountable for the final decision.</p>
+      <p>As an early‑career candidate and emerging HR professional, that's where I see the real value. AI can support recruitment, but people should still feel seen in the process. Used well, it improves both efficiency and candidate experience; used without care, it risks turning a human decision into a mechanical one. For HR managers, the goal is to keep recruitment efficient without losing its human centre.</p>
+      <p>If you would like to complete the LinkedIn Learning course yourself, you can follow this link: <a href="https://www.linkedin.com/learning/" target="_blank" rel="noopener" style="color:var(--purple);font-weight:600;">Harnessing AI in the Recruiting Lifecycle</a></p>
+    `,
+    comments: []
+  },
+  5: {
+    title: "The First Time I Witnessed a Toxic Workplace (and Didn't Know What to Call It)",
+    date: "5 Apr 2026", readTime: "4 min read", category: "Culture",
+    icon: "ti-building-community", bannerClass: "banner-5",
+    content: `
+      <p>I want to write about this carefully, because it involves real people and I'm not interested in venting. But I think it's worth talking about, because it's part of why I ended up wanting to work in HR in the first place.</p>
+      <h2>What I Observed</h2>
+      <p>A few years ago I worked somewhere that, in retrospect, had a deeply unhealthy culture. At the time, I just thought work was like that. Managers who belittled people publicly. A norm of never flagging problems upward. Staff turnover that nobody ever seemed to question. I didn't have the language for any of it. I thought I was being too sensitive, or that I needed to toughen up.</p>
+      <h2>When I Started Learning HR Vocabulary</h2>
+      <p>The thing about studying HR — even at the early stages I'm at — is that you start getting frameworks for things you previously just felt. I read about psychological safety and thought: that's what was missing. I read about the conditions that drive turnover and thought: yes, all of those were present.</p>
+      <blockquote><p>"Naming something doesn't fix it. But it does mean you can start having a more useful conversation about it."</p></blockquote>
+      <h2>Why I'm Writing About It</h2>
+      <p>Partly because I think a lot of people — especially early in their careers — experience workplaces like this and internalise it as normal, or as their problem. I want to write for that version of myself, who didn't know there was another way.</p>
+      <p>I'm also aware that going into HR means I might one day be in a position to influence whether workplaces are like that or not. That feels important. It's one of the things that keeps me going when the studying gets heavy.</p>
+    `,
+    comments: []
+  }
+};
+
+let currentPostId = null;
+
+// ── PAGE NAVIGATION ──
+function showPage(name) {
+  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+  document.getElementById('page-' + name).classList.add('active');
+  document.querySelectorAll('.nav-links button').forEach(b => b.classList.remove('active'));
+  if (name === 'home') document.getElementById('nav-home').classList.add('active');
+  if (name === 'blog') document.getElementById('nav-blog').classList.add('active');
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+// ── OPEN POST ──
+function openPost(id) {
+  currentPostId = id;
+  const post = posts[id];
+  if (!post) return;
+
+  document.getElementById('post-title').textContent = post.title;
+  document.getElementById('post-date-display').textContent = post.date;
+  document.getElementById('post-read-time').textContent = post.readTime;
+  document.getElementById('post-category').textContent = post.category;
+  document.getElementById('post-content').innerHTML = post.content;
+  document.getElementById('post-banner-icon').className = 'ti ' + post.icon;
+  document.getElementById('post-banner').className = 'post-hero-banner ' + post.bannerClass;
+
+  renderComments();
+  showPage('post');
+}
+
+// ── RENDER COMMENTS ──
+function renderComments() {
+  const post = posts[currentPostId];
+  const allComments = post.comments;
+  const count = allComments.reduce((acc, c) => acc + 1 + c.replies.length, 0);
+  document.getElementById('post-comment-count').textContent = allComments.length;
+  document.getElementById('comment-count-badge').textContent = count;
+
+  const list = document.getElementById('comments-list');
+  if (!allComments.length) {
+    list.innerHTML = '<div class="no-comments"><i class="ti ti-message-circle"></i>No comments yet. Be the first to share your thoughts!</div>';
+    return;
+  }
+
+  list.innerHTML = allComments.map((c, idx) => `
+    <div class="comment-card" id="comment-${c.id}">
+      <div class="comment-header">
+        <div class="comment-author">
+          <div class="comment-avatar">${c.name.charAt(0)}</div>
+          <div class="comment-author-info">
+            <strong>${c.name}</strong>
+            <span>${c.date}</span>
+          </div>
+        </div>
+        <button class="comment-like-btn ${c.liked ? 'liked' : ''}" onclick="likeComment(${currentPostId}, ${c.id})">
+          <i class="ti ${c.liked ? 'ti-heart-filled' : 'ti-heart'}"></i> ${c.likes}
+        </button>
+      </div>
+      <div class="comment-text">${c.text}</div>
+      ${c.replies.map(r => `
+        <div class="nested-comment">
+          <div class="comment-author" style="display:flex;align-items:center;gap:8px;margin-bottom:0.5rem;">
+            <div class="comment-avatar" style="width:30px;height:30px;font-size:12px;">${r.name.charAt(0)}</div>
+            <div class="comment-author-info"><strong>${r.name}</strong><span>${r.date}</span></div>
+          </div>
+          <div class="comment-text">${r.text}</div>
+        </div>
+      `).join('')}
+      <button class="comment-reply-btn" onclick="toggleReplyForm(${c.id})"><i class="ti ti-corner-down-right"></i> Reply</button>
+      <div class="comment-reply" id="reply-form-${c.id}" style="display:none;">
+        <div class="reply-form">
+          <input type="text" class="reply-input" id="reply-name-${c.id}" placeholder="Your name" style="min-height:unset;resize:none;" />
+          <textarea class="reply-input" id="reply-text-${c.id}" placeholder="Write a reply..."></textarea>
+          <button class="reply-submit" onclick="submitReply(${currentPostId}, ${c.id})">Post Reply</button>
+        </div>
+      </div>
+    </div>
+  `).join('');
+}
+
+function toggleReplyForm(commentId) {
+  const form = document.getElementById('reply-form-' + commentId);
+  form.style.display = form.style.display === 'none' ? 'block' : 'none';
+}
+
+function likeComment(postId, commentId) {
+  const post = posts[postId];
+  const comment = post.comments.find(c => c.id === commentId);
+  if (!comment) return;
+  comment.liked = !comment.liked;
+  comment.likes += comment.liked ? 1 : -1;
+  renderComments();
+}
+
+function submitReply(postId, commentId) {
+  const name = document.getElementById('reply-name-' + commentId)?.value.trim();
+  const text = document.getElementById('reply-text-' + commentId)?.value.trim();
+  if (!name || !text) { alert('Please enter your name and reply.'); return; }
+  const post = posts[postId];
+  const comment = post.comments.find(c => c.id === commentId);
+  if (!comment) return;
+  const now = new Date();
+  comment.replies.push({ name, date: now.toLocaleDateString('en-AU', { day: 'numeric', month: 'short', year: 'numeric' }), text });
+  renderComments();
+}
+
+function submitComment() {
+  const name = document.getElementById('comment-name').value.trim();
+  const text = document.getElementById('comment-text').value.trim();
+  if (!name || !text) { alert('Please enter your name and a comment.'); return; }
+  const post = posts[currentPostId];
+  const now = new Date();
+  const newId = Date.now();
+  post.comments.push({ id: newId, name, date: now.toLocaleDateString('en-AU', { day: 'numeric', month: 'short', year: 'numeric' }), text, likes: 0, liked: false, replies: [] });
+  document.getElementById('comment-name').value = '';
+  document.getElementById('comment-email').value = '';
+  document.getElementById('comment-text').value = '';
+  renderComments();
+  document.getElementById('comments-list').scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+
+// ── BLOG FILTERS ──
+function filterBlogPosts(query) {
+  const q = query.toLowerCase();
+  document.querySelectorAll('.blog-post-card').forEach(card => {
+    const title = card.querySelector('h2')?.textContent.toLowerCase() || '';
+    const excerpt = card.querySelector('p')?.textContent.toLowerCase() || '';
+    card.style.display = (title.includes(q) || excerpt.includes(q)) ? 'block' : 'none';
+    if (card.classList.contains('featured')) {
+      card.style.display = (title.includes(q) || excerpt.includes(q)) ? 'grid' : 'none';
+    }
+  });
+}
+
+function filterByCategory(cat, btn) {
+  if (btn) {
+    document.querySelectorAll('.filter-tab').forEach(t => t.classList.remove('active'));
+    btn.classList.add('active');
+  }
+  document.querySelectorAll('.blog-post-card').forEach(card => {
+    const show = cat === 'all' || card.dataset.category === cat;
+    if (card.classList.contains('featured')) {
+      card.style.display = show ? 'grid' : 'none';
+    } else {
+      card.style.display = show ? 'block' : 'none';
+    }
+  });
+  if (!btn) showPage('blog');
+}
+</script>
+</body>
+</html>
